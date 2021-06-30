@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:page_transition/page_transition.dart';
+import 'popup.dart';
 
 void main() {
   runApp(
@@ -52,7 +53,11 @@ class Intro extends StatelessWidget {
   }
 }
 
-class MyApp extends StatelessWidget {
+class MyInfo extends StatefulWidget {
+  _MyInfoState createState() => _MyInfoState();
+}
+
+class _MyInfoState extends State<MyInfo> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -92,18 +97,32 @@ class MyApp extends StatelessWidget {
               Card(
                 color: Colors.white,
                 margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                child: ListTile(
-                  leading: Icon(
-                    Icons.code,
-                    size: 30.0,
-                    color: Colors.indigo[500],
-                  ),
-                  title: Text(
-                    "not a genius but I code smh",
-                    style: GoogleFonts.firaCode(
-                      fontSize: 15.5,
-                      letterSpacing: 1,
+                child: InkWell(
+                  child: ListTile(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        PageTransition(
+                          curve: Curves.easeInOut,
+                          duration: Duration(milliseconds: 300),
+                          reverseDuration: Duration(milliseconds: 300),
+                          type: PageTransitionType.fade,
+                          child: PopUp(),
+                        ),
+                      );
+                    },
+                    leading: Icon(
+                      Icons.code,
+                      size: 30.0,
                       color: Colors.indigo[500],
+                    ),
+                    title: Text(
+                      "not a genius but I code smh",
+                      style: GoogleFonts.firaCode(
+                        fontSize: 15.5,
+                        letterSpacing: 1,
+                        color: Colors.indigo[500],
+                      ),
                     ),
                   ),
                 ),
@@ -142,6 +161,15 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MyInfo(),
     );
   }
 }
