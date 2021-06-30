@@ -1,1 +1,2 @@
-# haru-card
+# haru card
+Simple Flutter App
