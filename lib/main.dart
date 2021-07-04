@@ -79,20 +79,21 @@ class _MyInfoState extends State<MyInfo> {
                     color: Colors.white,
                     fontWeight: FontWeight.w500),
               ),
-              SizedBox(
-                height: 20.0,
-                width: 150.0,
-                child: Divider(
-                  color: Colors.white,
-                ),
-              ),
+              //
               Text(
-                'a coder but not a genius',
+                'anime freak who is a coder',
                 style: GoogleFonts.raleway(
                     fontSize: 15.0,
                     letterSpacing: 2.5,
                     color: Colors.white,
                     fontWeight: FontWeight.w500),
+              ),
+              SizedBox(
+                height: 20.0,
+                width: 150.0,
+                child: Divider(
+                  color: Colors.lightBlueAccent,
+                ),
               ),
               Card(
                 color: Colors.white,
@@ -117,7 +118,7 @@ class _MyInfoState extends State<MyInfo> {
                       color: Colors.indigo[500],
                     ),
                     title: Text(
-                      "not a genius but I code smh",
+                      "not a genius",
                       style: GoogleFonts.firaCode(
                         fontSize: 15.5,
                         letterSpacing: 1,
@@ -137,24 +138,27 @@ class _MyInfoState extends State<MyInfo> {
                     color: Colors.indigo[500],
                   ),
                   title: RichText(
-                      text: TextSpan(children: [
-                    TextSpan(
-                        style: GoogleFonts.firaCode(
-                          fontSize: 15.5,
-                          letterSpacing: 1,
-                          color: Colors.indigo[500],
-                        ),
-                        text: "aradhana1807",
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () async {
-                            var url = "https://github.com/aradhana1807";
-                            if (await canLaunch(url)) {
-                              await launch(url);
-                            } else {
-                              throw 'Could not launch $url';
-                            }
-                          }),
-                  ])),
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                            style: GoogleFonts.firaCode(
+                              fontSize: 15.5,
+                              letterSpacing: 1,
+                              color: Colors.indigo[500],
+                            ),
+                            text: "aradhana1807",
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () async {
+                                var url = "https://github.com/aradhana1807";
+                                if (await canLaunch(url)) {
+                                  await launch(url);
+                                } else {
+                                  throw 'Could not launch $url';
+                                }
+                              }),
+                      ],
+                    ),
+                  ),
                 ),
               ),
             ],
